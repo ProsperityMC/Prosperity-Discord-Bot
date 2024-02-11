@@ -1,0 +1,9 @@
+{
+  "name": "Prosperity-Discord-Bot",
+  "version": "0.0.1",
+  "description": "Discord Bot for the Prosperity Minecraft Server",
+  "main": "main.js",
+  "repository": "https://github.com/ProsperityMC/Prosperity-Discord-Bot",
+  "author": "removeDirectory",
+  "license": "MIT"
+}
