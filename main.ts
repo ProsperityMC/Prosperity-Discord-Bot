@@ -1,33 +1,31 @@
 require("dotenv").config();
 const Discord = require("discord.js");
 const client = new Discord.Client({intents: [Discord.GatewayIntentBits.Guilds]});
-const commands = require("./commands.json");
-
-// Register slash commands
-registerSlashCommands();
+import * as commands from "./commands/index";
+import { BaseInteraction } from "discord.js"
 
 // Command Run Loop
-client.on('interactionCreate', async interaction => {
+client.on('interactionCreate', async (interaction:BaseInteraction) => {
     if (!interaction.isChatInputCommand()) { return; }
 
+    console.log(commands.ping)
+
     // Add commands here
-    if (interaction.commandName == 'ping') { interaction.reply('pong'); }
+    switch (interaction.commandName) {
+        case "ping":
+            await commands.ping(client, interaction);
+            break;
+        default:
+            interaction.reply("How the fuck did you get this message");
+    }
 })
 
 // Run when ready
-client.on('ready', () => {
+client.on('ready', async () => {
+    //await registerSlashCommands();
+
     console.log(`logged in as ${client.user.tag}`);
 })
 
 // Login
 client.login(process.env.TOKEN);
-
-async function registerSlashCommands() {
-    const rest = new Discord.REST({version: '10'}).setToken(process.env.TOKEN);
-    try {
-        console.log("refreshing slash commands");
-        await rest.put(Discord.Routes.applicationCommands(process.env.ID), {body: commands});
-    } catch (error) {
-        console.error(error);
-    }
-}
