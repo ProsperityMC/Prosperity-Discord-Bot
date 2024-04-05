@@ -111,7 +111,7 @@
     },
     {
         "name": "uptime",
-        "description": "The bot's current uptime",
+        "description": "Ths service's current uptime",
         "type": 1,
         "options": [
             {
@@ -204,11 +204,6 @@
         "type": 1
     },
     {
-        "name": "inactive",
-        "description": "Information about having the 'inactive' role",
-        "type": 1
-    },
-    {
         "name": "map",
         "description": "Link to the live map",
         "type": 1
@@ -221,11 +216,6 @@
     {
         "name": "specs",
         "description": "The 'specs' of the 'server'",
-        "type": 1
-    },
-    {
-        "name": "trades",
-        "description": "A chart of villager trades",
         "type": 1
     },
     {

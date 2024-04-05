@@ -1,1 +1,2 @@
-export { ping } from "./ping";
+export * from "./ping";
+export * from "./links"
