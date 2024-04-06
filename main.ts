@@ -49,7 +49,7 @@ client.on('interactionCreate', async (interaction:BaseInteraction) => {
 })
 
 // Run when someone joins the server
-client.on('guildMemberAdd', async (member) => {
+client.on('guildMemberAdd', async (member:any) => {
     // Get channel to send welcome message in 
     let channel = member.guild.channels.cache.get(`${config.joinMsgChannel}`);
     if (!channel) {
@@ -84,7 +84,7 @@ client.on('guildMemberAdd', async (member) => {
         let subValue = "";
         switch (msgToSub.slice(subStart+1, i)) { // Add substitution values here
             case "user":
-                subValue = `<@${member.id}>`;
+                subValue = `<@${member.user.id}>`;
         }
         if (subValue != "") {
             msgToSub.replace(msgToSub.slice(subStart, i+1), subValue);
@@ -99,6 +99,61 @@ client.on('guildMemberAdd', async (member) => {
     }
     // If embed
     let embed = config.joinMsg;
+    embed.description = msgToSub;
+    channel.send({ embeds: [embed] });
+})
+
+// Run when someone leaves the server
+client.on('guildMemberRemove', async (member:any) => {
+    // Get channel to send leave message in 
+    let channel = member.guild.channels.cache.get(`${config.leaveMsgChannel}`);
+    if (!channel) {
+        // If invalid, log error unless it's -1 as that's the janky-ass way to disable this shit
+        console.log(config.leaveMsgChannel != -1 ? "invalid channel id" : "leave msg disabled");
+        return;
+    }
+
+    let msgToSub = "";
+    if (config.isLeaveEmbed) {
+        msgToSub = config.leaveMsg.description;
+    } else {
+        msgToSub = config.leaveMsg;
+    }
+
+    // Both can only be equal if at same position, which is fucking impossible, or if both are not found (i.e. both return -1)
+    if (msgToSub.indexOf('{') == msgToSub.indexOf('}')) {
+        // If you didn't customise the join message like a fucking monster
+        channel.send(msgToSub);
+        return;
+    }
+    // Value substitution
+    let subStart = -1;
+    for (let i = 0; i < msgToSub.length; i++) {
+        if (msgToSub == '{') { // Start of field to substitute
+            subStart = i; 
+            continue; 
+        } 
+        else if (msgToSub != '}') { continue; } // If not needed
+        else if (subStart == -1) { continue; } // If no substitution needed
+        // End of bit to substitute
+        let subValue = "";
+        switch (msgToSub.slice(subStart+1, i)) { // Add substitution values here
+            case "user":
+                subValue = `<@${member.user.username}>`;
+        }
+        if (subValue != "") {
+            msgToSub.replace(msgToSub.slice(subStart, i+1), subValue);
+        }
+        subStart = -1;
+    }
+
+    // Send message
+    if (!config.isLeaveEmbed) {
+        channel.send(msgToSub);
+        return;
+    }
+    // If embed
+    let embed = config.leaveMsg;
     embed.description = msgToSub;
     channel.send({ embeds: [embed] });
 })
