@@ -33,20 +33,22 @@
                 "type": 3,
                 "required": false
             }
-        ]
+        ],
+        "defauilt_member_permissions": "6"
     },
     {
         "name": "whitelist-remove",
         "description": "Remove a user from the whitelist. Only available to moderators",
         "type": 1,
-        "stringOption": [
+        "options": [
             {
                 "name": "user",
                 "description": "The MC username to unwhitelist",
                 "type": 3,
                 "required": true
             }
-        ]
+        ],
+        "defauilt_member_permissions": "6"
     },
     {
         "name": "kick",
@@ -65,7 +67,8 @@
                 "type": 3,
                 "required": false
             }
-        ]
+        ],
+        "defauilt_member_permissions": "6"
     },
     {
         "name": "ban",
@@ -84,7 +87,8 @@
                 "type": 3,
                 "required": false
             }
-        ]
+        ],
+        "defauilt_member_permissions": "6"
     },
     {
         "name": "players-online",
@@ -147,7 +151,8 @@
                 "type": 3,
                 "required": true
             }
-        ]
+        ],
+        "defauilt_member_permissions": "6"
     },
     {
         "name": "embed-preview",
@@ -163,30 +168,69 @@
         ]
     },
     {
-        "name": "welcome-set",
-        "description": "Sets the welcome message. Only available to moderators.",
+        "name": "welcome",
+        "description": "Edits the welcome message. Only available to moderators.",
         "type": 1,
         "options": [
             {
-                "name": "message",
-                "description": "Welcome message",
-                "type": 3,
-                "required": true
+                "name": "set-message",
+                "description": "Set the welcome message",
+                "type": 1,
+                "options": [
+                    {
+                        "name": "message",
+                        "description": "Welcome message",
+                        "type": 3,
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "set-channel",
+                "description": "Set the welcome message",
+                "type": 1,
+                "options": [
+                    {
+                        "name": "channel",
+                        "description": "Welcome message channel",
+                        "type": 7,
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "toggle",
+                "description": "Toggle on/off welcome messages",
+                "type": 1
             }
-        ]
+        ],
+        "defauilt_member_permissions": "6"
     },
     {
-        "name": "leave-set",
-        "description": "Sets the leave message. Only available to moderators",
+        "name": "leave",
+        "description": "Edits the leave message. Only available to moderators.",
         "type": 1,
         "options": [
             {
-                "name": "message",
-                "description": "Leave message",
-                "type": 3,
-                "required": true
+                "name": "set",
+                "description": "Set the leave message",
+                "type": 1,
+                "options": [
+                    {
+                        "name": "message",
+                        "description": "Leave message",
+                        "type": 3,
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "toggle",
+                "description": "Toggle on/off leave messages",
+                "type": 1
             }
-        ]
+        ],
+        "defauilt_member_permissions": "6"
     },
     {
         "name": "github",

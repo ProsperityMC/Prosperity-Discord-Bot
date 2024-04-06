@@ -12,6 +12,7 @@ client.on('interactionCreate', async (interaction:BaseInteraction) => {
     console.log(commands.ping)
 
     // Add commands here
+    // Yes this is fuck ugly but it's better than checking if a file exists and then loading it every time
     switch (interaction.commandName) {
         case "ping":
             commands.ping(client, interaction);
@@ -43,6 +44,15 @@ client.on('interactionCreate', async (interaction:BaseInteraction) => {
         case "bot-info":
             commands.botInfo(interaction);
             break;
+        case "seed":
+            commands.seed(interaction);
+            break;
+        case "welcome":
+            config = commands.welcomeMessage(interaction, config);
+            break;
+        case "leave":
+            config = commands.leaveMessage(interaction, config);
+            break;
         default:
             interaction.reply("How the fuck did you get this message");
     }
@@ -52,9 +62,9 @@ client.on('interactionCreate', async (interaction:BaseInteraction) => {
 client.on('guildMemberAdd', async (member:any) => {
     // Get channel to send welcome message in 
     let channel = member.guild.channels.cache.get(`${config.joinMsgChannel}`);
-    if (!channel) {
+    if (!channel || !config.joinMsgEnabled) {
         // If invalid, log error unless it's -1 as that's the janky-ass way to disable this shit
-        console.log(config.joinMsgChannel != -1 ? "invalid channel id" : "join msg disabled");
+        console.log(config.joinMsgEnabled ? "invalid channel id" : "join msg disabled");
         return;
     }
 
@@ -107,9 +117,9 @@ client.on('guildMemberAdd', async (member:any) => {
 client.on('guildMemberRemove', async (member:any) => {
     // Get channel to send leave message in 
     let channel = member.guild.channels.cache.get(`${config.leaveMsgChannel}`);
-    if (!channel) {
+    if (!channel || !config.leaveMsgEnabled) {
         // If invalid, log error unless it's -1 as that's the janky-ass way to disable this shit
-        console.log(config.leaveMsgChannel != -1 ? "invalid channel id" : "leave msg disabled");
+        console.log(config.leaveMsgEnabled ? "invalid channel id" : "leave msg disabled");
         return;
     }
 
