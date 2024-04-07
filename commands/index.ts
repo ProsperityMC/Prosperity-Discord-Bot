@@ -5,3 +5,4 @@ export * from "./events";
 export * from "./embed";
 export * from "./uptime";
 export * from "./playersOnline";
+export * from "./moderation";

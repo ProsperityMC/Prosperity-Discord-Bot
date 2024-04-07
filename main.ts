@@ -65,6 +65,12 @@ client.on("interactionCreate", async (interaction: BaseInteraction) => {
 		case "players-online":
 			commands.playersOnline(interaction);
 			break;
+		case "kick":
+			commands.kick(interaction, client);
+			break;
+		case "ban":
+			commands.ban(interaction, client);
+			break;
 		default:
 			interaction.reply("How the fuck did you get this message");
 	}
@@ -133,6 +139,9 @@ client.on("guildMemberAdd", async (member: any) => {
 
 // Run when someone leaves the server
 client.on("guildMemberRemove", async (member: any) => {
+
+	// TODO: request to remove from whitelist if had role you fucking idiot if we're gonna do that
+
 	// Get channel to send leave message in
 	let channel = member.guild.channels.cache.get(`${config.leaveMsgChannel}`);
 	if (!channel || !config.leaveMsgEnabled) {
