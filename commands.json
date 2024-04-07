@@ -1,285 +1,298 @@
 [
-    {
-        "name": "seed",
-        "description": "Returns the seed of the server",
-        "type": 1,
-        "options": [
-            {
-                "name": "server",
-                "description": "The server for which you wish to see the online players (survival / creative)",
-                "type": 3,
-                "required": true,
-                "choices": [
-                    {
-                        "name": "Survival",
-                        "value": "survival"
-                    },
-                    {
-                        "name": "Creative",
-                        "value": "creative"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "name": "whitelist-add",
-        "description": "Whitelist a user. Only available to moderators.",
-        "type": 1,
-        "options": [
-            {
-                "name": "user",
-                "description": "The MC username to whitelist",
-                "type": 3,
-                "required": false
-            }
-        ],
-        "defauilt_member_permissions": "6"
-    },
-    {
-        "name": "whitelist-remove",
-        "description": "Remove a user from the whitelist. Only available to moderators",
-        "type": 1,
-        "options": [
-            {
-                "name": "user",
-                "description": "The MC username to unwhitelist",
-                "type": 3,
-                "required": true
-            }
-        ],
-        "defauilt_member_permissions": "6"
-    },
-    {
-        "name": "kick",
-        "description": "Kicks the user from the server, and un-whitelists them. Only available to moderators",
-        "type": 1,
-        "options": [
-            {
-                "name": "user",
-                "description": "Discord user to kick",
-                "type": 6,
-                "required": true
-            },
-            {
-                "name": "reason",
-                "description": "Reason for kicking the user",
-                "type": 3,
-                "required": false
-            }
-        ],
-        "defauilt_member_permissions": "6"
-    },
-    {
-        "name": "ban",
-        "description": "Bans the user from the server and the Discord. Only available to moderators",
-        "type": 1,
-        "options": [
-            {
-                "name": "user",
-                "description": "Discord user to ban",
-                "type": 6,
-                "required": true
-            },
-            {
-                "name": "reason",
-                "description": "Reason for kicking the user",
-                "type": 3,
-                "required": false
-            }
-        ],
-        "defauilt_member_permissions": "6"
-    },
-    {
-        "name": "players-online",
-        "description": "Gets currently online users on the given server",
-        "type": 1,
-        "options": [
-            {
-                "name": "server",
-                "description": "The server for which you wish to see the online players (survival / creative)",
-                "type": 3,
-                "required": true,
-                "choices": [
-                    {
-                        "name": "Survival",
-                        "value": "survival"
-                    },
-                    {
-                        "name": "Creative",
-                        "value": "creative"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "name": "uptime",
-        "description": "Ths service's current uptime",
-        "type": 1,
-        "options": [
-            {
-                "name": "item",
-                "description": "The server for which you wish to see the online players (survival / creative / bot)",
-                "type": 3,
-                "required": true,
-                "choices": [
-                    {
-                        "name": "Survival",
-                        "value": "survival"
-                    },
-                    {
-                        "name": "Creative",
-                        "value": "creative"
-                    },
-                    {
-                        "name": "Discord Bot",
-                        "value": "bot"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "name": "announcement-embed",
-        "description": "Post an embed in the announcements channel. Only available to moderators",
-        "type": 1,
-        "options": [
-            {
-                "name": "embed",
-                "description": "JSON to make embed",
-                "type": 3,
-                "required": true
-            }
-        ],
-        "defauilt_member_permissions": "6"
-    },
-    {
-        "name": "embed-preview",
-        "description": "Sends an embed back to the user to preview it",
-        "type": 1,
-        "options": [
-            {
-                "name": "embed",
-                "description": "JSON to make embed",
-                "type": 3,
-                "required": true
-            }
-        ]
-    },
-    {
-        "name": "welcome",
-        "description": "Edits the welcome message. Only available to moderators.",
-        "type": 1,
-        "options": [
-            {
-                "name": "set-message",
-                "description": "Set the welcome message",
-                "type": 1,
-                "options": [
-                    {
-                        "name": "message",
-                        "description": "Welcome message",
-                        "type": 3,
-                        "required": true
-                    }
-                ]
-            },
-            {
-                "name": "set-channel",
-                "description": "Set the welcome message",
-                "type": 1,
-                "options": [
-                    {
-                        "name": "channel",
-                        "description": "Welcome message channel",
-                        "type": 7,
-                        "required": true
-                    }
-                ]
-            },
-            {
-                "name": "toggle",
-                "description": "Toggle on/off welcome messages",
-                "type": 1
-            }
-        ],
-        "defauilt_member_permissions": "6"
-    },
-    {
-        "name": "leave",
-        "description": "Edits the leave message. Only available to moderators.",
-        "type": 1,
-        "options": [
-            {
-                "name": "set",
-                "description": "Set the leave message",
-                "type": 1,
-                "options": [
-                    {
-                        "name": "message",
-                        "description": "Leave message",
-                        "type": 3,
-                        "required": true
-                    }
-                ]
-            },
-            {
-                "name": "toggle",
-                "description": "Toggle on/off leave messages",
-                "type": 1
-            }
-        ],
-        "defauilt_member_permissions": "6"
-    },
-    {
-        "name": "github",
-        "description": "Sends link for the GitHub Organisation",
-        "type": 1
-    },
-    {
-        "name": "god-armor",
-        "description": "Returns optimal process to create god armor",
-        "type": 1
-    },
-    {
-        "name": "hibye",
-        "description": "The funny reaction gif",
-        "type": 1
-    },
-    {
-        "name": "map",
-        "description": "Link to the live map",
-        "type": 1
-    },
-    {
-        "name": "spacebar",
-        "description": "Information about the standard use of the spacebar",
-        "type": 1
-    },
-    {
-        "name": "specs",
-        "description": "The 'specs' of the 'server'",
-        "type": 1
-    },
-    {
-        "name": "tryit",
-        "description": "A solution to common problems",
-        "type": 1
-    },
-    {
-        "name": "world-age",
-        "description": "The age of the current world",
-        "type": 1
-    },
-    {
-        "name": "bot-info",
-        "description": "Bot Info",
-        "type": 1
-    },
-    {
-        "name": "ping",
-        "description": "pong",
-        "type": 1
-    }
+	{
+		"name": "seed",
+		"description": "Returns the seed of the server",
+		"type": 1,
+		"options": [
+			{
+				"name": "server",
+				"description": "The server for which you wish to see the online players (survival / creative)",
+				"type": 3,
+				"required": true,
+				"choices": [
+					{
+						"name": "Survival",
+						"value": "survival"
+					},
+					{
+						"name": "Creative",
+						"value": "creative"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "whitelist-add",
+		"description": "Whitelist a user. Only available to moderators.",
+		"type": 1,
+		"options": [
+			{
+				"name": "user",
+				"description": "The MC username to whitelist",
+				"type": 3,
+				"required": false
+			}
+		],
+		"defauilt_member_permissions": "6"
+	},
+	{
+		"name": "whitelist-remove",
+		"description": "Remove a user from the whitelist. Only available to moderators",
+		"type": 1,
+		"options": [
+			{
+				"name": "user",
+				"description": "The MC username to unwhitelist",
+				"type": 3,
+				"required": true
+			}
+		],
+		"defauilt_member_permissions": "6"
+	},
+	{
+		"name": "kick",
+		"description": "Kicks the user from the server, and un-whitelists them. Only available to moderators",
+		"type": 1,
+		"options": [
+			{
+				"name": "user",
+				"description": "Discord user to kick",
+				"type": 6,
+				"required": true
+			},
+			{
+				"name": "reason",
+				"description": "Reason for kicking the user",
+				"type": 3,
+				"required": false
+			}
+		],
+		"defauilt_member_permissions": "6"
+	},
+	{
+		"name": "ban",
+		"description": "Bans the user from the server and the Discord. Only available to moderators",
+		"type": 1,
+		"options": [
+			{
+				"name": "user",
+				"description": "Discord user to ban",
+				"type": 6,
+				"required": true
+			},
+			{
+				"name": "reason",
+				"description": "Reason for kicking the user",
+				"type": 3,
+				"required": false
+			}
+		],
+		"defauilt_member_permissions": "6"
+	},
+	{
+		"name": "players-online",
+		"description": "Gets currently online users on the given server",
+		"type": 1,
+		"options": [
+			{
+				"name": "server",
+				"description": "The server for which you wish to see the online players (survival / creative)",
+				"type": 3,
+				"required": true,
+				"choices": [
+					{
+						"name": "Survival",
+						"value": "survival"
+					},
+					{
+						"name": "Creative",
+						"value": "creative"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "uptime",
+		"description": "Ths service's current uptime",
+		"type": 1,
+		"options": [
+			{
+				"name": "item",
+				"description": "The server for which you wish to see the online players (survival / creative / bot)",
+				"type": 3,
+				"required": true,
+				"choices": [
+					{
+						"name": "Survival",
+						"value": "survival"
+					},
+					{
+						"name": "Creative",
+						"value": "creative"
+					},
+					{
+						"name": "Discord Bot",
+						"value": "bot"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "announcement-embed",
+		"description": "Post an embed in the announcements channel. Only available to moderators",
+		"type": 1,
+		"options": [
+			{
+				"name": "embed",
+				"description": "JSON to make embed",
+				"type": 3,
+				"required": true
+			}
+		],
+		"defauilt_member_permissions": "6"
+	},
+	{
+		"name": "embed-preview",
+		"description": "Sends an embed back to the user to preview it",
+		"type": 1,
+		"options": [
+			{
+				"name": "embed",
+				"description": "JSON to make embed",
+				"type": 3,
+				"required": true
+			}
+		]
+	},
+	{
+		"name": "welcome",
+		"description": "Edits the welcome message. Only available to moderators.",
+		"type": 1,
+		"options": [
+			{
+				"name": "set-message",
+				"description": "Set the welcome message",
+				"type": 1,
+				"options": [
+					{
+						"name": "message",
+						"description": "Welcome message",
+						"type": 3,
+						"required": true
+					}
+				]
+			},
+			{
+				"name": "set-channel",
+				"description": "Set the welcome message channel",
+				"type": 1,
+				"options": [
+					{
+						"name": "channel",
+						"description": "Welcome message channel",
+						"type": 7,
+						"required": true
+					}
+				]
+			},
+			{
+				"name": "toggle",
+				"description": "Toggle on/off welcome messages",
+				"type": 1
+			}
+		],
+		"defauilt_member_permissions": "6"
+	},
+	{
+		"name": "leave",
+		"description": "Edits the leave message. Only available to moderators.",
+		"type": 1,
+		"options": [
+			{
+				"name": "set-message",
+				"description": "Set the leave message",
+				"type": 1,
+				"options": [
+					{
+						"name": "message",
+						"description": "Leave message",
+						"type": 3,
+						"required": true
+					}
+				]
+			},
+			{
+				"name": "set-channel",
+				"description": "Set the leave message channel",
+				"type": 1,
+				"options": [
+					{
+						"name": "channel",
+						"description": "Leave message channel",
+						"type": 7,
+						"required": true
+					}
+				]
+			},
+			{
+				"name": "toggle",
+				"description": "Toggle on/off leave messages",
+				"type": 1
+			}
+		],
+		"defauilt_member_permissions": "6"
+	},
+	{
+		"name": "github",
+		"description": "Sends link for the GitHub Organisation",
+		"type": 1
+	},
+	{
+		"name": "god-armor",
+		"description": "Returns optimal process to create god armor",
+		"type": 1
+	},
+	{
+		"name": "hibye",
+		"description": "The funny reaction gif",
+		"type": 1
+	},
+	{
+		"name": "map",
+		"description": "Link to the live map",
+		"type": 1
+	},
+	{
+		"name": "spacebar",
+		"description": "Information about the standard use of the spacebar",
+		"type": 1
+	},
+	{
+		"name": "specs",
+		"description": "The 'specs' of the 'server'",
+		"type": 1
+	},
+	{
+		"name": "tryit",
+		"description": "A solution to common problems",
+		"type": 1
+	},
+	{
+		"name": "world-age",
+		"description": "The age of the current world",
+		"type": 1
+	},
+	{
+		"name": "bot-info",
+		"description": "Bot Info",
+		"type": 1
+	},
+	{
+		"name": "ping",
+		"description": "pong",
+		"type": 1
+	}
 ]
