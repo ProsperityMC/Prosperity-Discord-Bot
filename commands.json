@@ -23,32 +23,38 @@
 		]
 	},
 	{
-		"name": "whitelist-add",
-		"description": "Whitelist a user. Only available to moderators.",
+		"name": "whitelist",
+		"description": "Edits the whitelist and syncs over servers. Only available to moderators",
 		"type": 1,
+		"default_member_permissions": "6",
 		"options": [
 			{
-				"name": "user",
-				"description": "The MC username to whitelist",
-				"type": 3,
-				"required": false
-			}
-		],
-		"defauilt_member_permissions": "6"
-	},
-	{
-		"name": "whitelist-remove",
-		"description": "Remove a user from the whitelist. Only available to moderators",
-		"type": 1,
-		"options": [
+				"name": "add",
+				"description": "Whitelist a user. Only available to moderators.",
+				"type": 1,
+				"options": [
+					{
+						"name": "user",
+						"description": "The MC username to whitelist",
+						"type": 3,
+						"required": true
+					}
+				]
+			},
 			{
-				"name": "user",
-				"description": "The MC username to unwhitelist",
-				"type": 3,
-				"required": true
+				"name": "remove",
+				"description": "Remove a user from the whitelist. Only available to moderators",
+				"type": 1,
+				"options": [
+					{
+						"name": "user",
+						"description": "The MC username to unwhitelist",
+						"type": 3,
+						"required": true
+					}
+				]	
 			}
-		],
-		"defauilt_member_permissions": "6"
+		]
 	},
 	{
 		"name": "kick",
@@ -68,7 +74,7 @@
 				"required": false
 			}
 		],
-		"defauilt_member_permissions": "6"
+		"default_member_permissions": "6"
 	},
 	{
 		"name": "ban",
@@ -88,7 +94,7 @@
 				"required": false
 			}
 		],
-		"defauilt_member_permissions": "6"
+		"default_member_permissions": "6"
 	},
 	{
 		"name": "players-online",
@@ -141,29 +147,42 @@
 		]
 	},
 	{
-		"name": "announcement-embed",
-		"description": "Post an embed in the announcements channel. Only available to moderators",
+		"name": "embed",
+		"description": "Sends embeds",
 		"type": 1,
 		"options": [
 			{
-				"name": "embed",
-				"description": "JSON to make embed",
-				"type": 3,
-				"required": true
-			}
-		],
-		"defauilt_member_permissions": "6"
-	},
-	{
-		"name": "embed-preview",
-		"description": "Sends an embed back to the user to preview it",
-		"type": 1,
-		"options": [
+				"name": "preview",
+				"description": "Sends the embed back here to preview it",
+				"type": 1,
+				"options": [
+					{
+						"name": "embed",
+						"description": "JSON to make embed",
+						"type": 3,
+						"required": true
+					}
+				]
+			},
 			{
-				"name": "embed",
-				"description": "JSON to make embed",
-				"type": 3,
-				"required": true
+				"name": "post",
+				"description": "Posts the embed to the selected channel",
+				"type": 1,
+				"default_member_permissions": "6",
+				"options": [
+					{
+						"name": "channel",
+						"description": "Channel to send the embed in",
+						"type": 7,
+						"required": true
+					},
+					{
+						"name": "embed",
+						"description": "JSON to make embed",
+						"type": 3,
+						"required": true
+					}
+				]
 			}
 		]
 	},
@@ -204,7 +223,7 @@
 				"type": 1
 			}
 		],
-		"defauilt_member_permissions": "6"
+		"default_member_permissions": "6"
 	},
 	{
 		"name": "leave",
@@ -243,7 +262,7 @@
 				"type": 1
 			}
 		],
-		"defauilt_member_permissions": "6"
+		"default_member_permissions": "6"
 	},
 	{
 		"name": "github",
