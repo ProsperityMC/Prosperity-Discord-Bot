@@ -1,6 +1,7 @@
 require("dotenv").config();
 const Discord = require("discord.js");
 const client = new Discord.Client({ intents: [Discord.GatewayIntentBits.Guilds] });
+const startTime = Date.now()
 let config = require("./config.json");
 import * as commands from "./commands/index";
 import { BaseInteraction } from "discord.js";
@@ -54,6 +55,15 @@ client.on("interactionCreate", async (interaction: BaseInteraction) => {
 			break;
 		case "leave":
 			config = commands.leaveMessage(interaction, config);
+			break;
+		case "embed":
+			commands.embed(interaction);
+			break;
+		case "uptime":
+			commands.uptime(interaction, startTime);
+			break;
+		case "players-online":
+			commands.playersOnline(interaction);
 			break;
 		default:
 			interaction.reply("How the fuck did you get this message");

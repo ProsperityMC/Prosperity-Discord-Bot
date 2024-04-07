@@ -125,7 +125,7 @@
 		"type": 1,
 		"options": [
 			{
-				"name": "item",
+				"name": "service",
 				"description": "The server for which you wish to see the online players (survival / creative / bot)",
 				"type": 3,
 				"required": true,
