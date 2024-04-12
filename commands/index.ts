@@ -6,3 +6,5 @@ export * from "./embed";
 export * from "./uptime";
 export * from "./playersOnline";
 export * from "./moderation";
+export * from "./whitelist";
+export * from "./error";

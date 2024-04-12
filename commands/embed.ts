@@ -1,7 +1,7 @@
 export function embed(interaction:any) {
-    // 
     const embedText:string = interaction.options.getString("embed");
     let embed:any;
+    // Parses the embed
     try {
         embed = JSON.parse(embedText);
     } catch (error) {
@@ -10,9 +10,11 @@ export function embed(interaction:any) {
 
     switch (interaction.options.getSubcommand()) {
         case "preview":
+            // Sends privately if a preview
             interaction.reply({ embeds: [embed], ephemeral: true });
         case "post":
-            const channel = interaction.options.getChannel("channel");
+            // Send to channel if specified
+            const channel:any = interaction.options.getChannel("channel");
             channel.send({ embeds: [embed] });
     }
 }

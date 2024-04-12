@@ -6,5 +6,7 @@
     "isLeaveEmbed": false,
     "leaveMsg": "Goodbye {user}, sorry to see you go",
     "leaveMsgChannel": 849093959510261770,
-    "leaveMsgEnabled": true
+    "leaveMsgEnabled": true,
+    "botErrorsEnabled": true,
+    "botErrorChannel": -1
 }

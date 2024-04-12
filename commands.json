@@ -34,10 +34,16 @@
 				"type": 1,
 				"options": [
 					{
-						"name": "user",
+						"name": "mc-user",
 						"description": "The MC username to whitelist",
 						"type": 3,
 						"required": true
+					},
+					{
+						"name": "discord-user",
+						"description": "The Discord account to link the MC account to",
+						"type": 6,
+						"required": false
 					}
 				]
 			},
@@ -47,14 +53,40 @@
 				"type": 1,
 				"options": [
 					{
-						"name": "user",
+						"name": "mc-user",
 						"description": "The MC username to unwhitelist",
 						"type": 3,
-						"required": true
+						"required": false
+					},
+					{
+						"name": "discord-user",
+						"description": "Discord User to unwhitelist",
+						"type": 6,
+						"required": false
 					}
 				]	
 			}
 		]
+	},
+	{
+		"name": "link",
+		"description": "Link your Discord Account to your Minecraft Account",
+		"type": 1,
+		"options": [
+			{
+				"name": "mc-user",
+				"description": "MC username",
+				"type": 3,
+				"required": true
+			},
+			{
+				"name": "discord-user",
+				"description": "Discord user",
+				"type": 6,
+				"required": true
+			}
+		],
+		"default_member_permissions": "6"
 	},
 	{
 		"name": "kick",
@@ -91,6 +123,12 @@
 				"name": "reason",
 				"description": "Reason for kicking the user",
 				"type": 3,
+				"required": false
+			},
+			{
+				"name": "delete-messages",
+				"description": "No. of days to delete messages for (0-7) (Default is 0 days)",
+				"type": 4,
 				"required": false
 			}
 		],
@@ -166,7 +204,7 @@
 			},
 			{
 				"name": "post",
-				"description": "Posts the embed to the selected channel",
+				"description": "Posts the embed to the selected channel. Only available to moderators.",
 				"type": 1,
 				"default_member_permissions": "6",
 				"options": [
@@ -224,6 +262,25 @@
 			}
 		],
 		"default_member_permissions": "6"
+	},
+	{
+		"name": "error-messages",
+		"description": "Settings around bot error messages in Discord. Only available to admins",
+		"type": 1,
+		"options": [
+			{
+				"name": "toggle",
+				"description": "Toggle on/off error messages in Discord from the bot.",
+				"type": 1
+			},
+			{
+				"name": "channel",
+				"description": "Error message channel",
+				"type": 7,
+				"required": true
+			}
+		],
+		"default_member_permissions": 8
 	},
 	{
 		"name": "leave",
@@ -302,6 +359,11 @@
 	{
 		"name": "world-age",
 		"description": "The age of the current world",
+		"type": 1
+	},
+	{
+		"name": "apply",
+		"description": "Link to apply to join the server",
 		"type": 1
 	},
 	{
