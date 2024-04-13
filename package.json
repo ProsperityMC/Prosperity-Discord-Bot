@@ -1,13 +1,13 @@
 {
-  "name": "Prosperity-Discord-Bot",
-  "version": "0.0.1",
-  "description": "Discord Bot for the Prosperity Minecraft Server",
-  "main": "main.ts",
-  "repository": "https://github.com/ProsperityMC/Prosperity-Discord-Bot",
-  "author": "removeDirectory",
-  "license": "MIT",
-  "dependencies": {
-    "discord.js": "^14.14.1",
-    "dotenv": "^16.4.5"
-  }
+	"name": "Prosperity-Discord-Bot",
+	"version": "0.0.1",
+	"description": "Discord Bot for the Prosperity Minecraft Server",
+	"main": "main.ts",
+	"repository": "https://github.com/ProsperityMC/Prosperity-Discord-Bot",
+	"author": "removeDirectory",
+	"license": "MIT",
+	"dependencies": {
+		"discord.js": "^14.14.1",
+		"dotenv": "^16.4.5"
+	}
 }

@@ -1,13 +1,14 @@
 import Discord from "discord.js";
 
-export function playersOnline(interaction: any, errorChannel:any, errorCmd:any) {
+export function playersOnline(interaction: any, errorChannel: any, errorCmd: any) {
 	// get people (probably none lmao)
-	const server:string = interaction.options.getString("server");
-	let responseList:any;
+	const server: string = interaction.options.getString("server");
+	let responseList: any;
 
-	fetch(`https://api.prosperitymc.net/players/${server}`).then(async (response:Response) => {
+	fetch(`https://api.prosperitymc.net/players/${server}`).then(async (response: Response) => {
 		if (response.status != 200) {
-			responseList = "There's been a server error, please try again later. If the issue persists, please let the mod team know.";
+			responseList =
+				"There's been a server error, please try again later. If the issue persists, please let the mod team know.";
 			errorCmd("Error when fetching player list", `\`\`\`\n${response}\`\`\``, errorChannel);
 		} else {
 			await response.json().then(async (data) => {
@@ -21,7 +22,7 @@ export function playersOnline(interaction: any, errorChannel:any, errorCmd:any) 
 	});
 
 	// makes it a nice list if people are actually on
-	let messageDecription:string;
+	let messageDecription: string;
 	if (Array.isArray(responseList)) {
 		messageDecription = "```txt";
 		for (let i = 0; i < responseList.length; i++) {
@@ -31,7 +32,7 @@ export function playersOnline(interaction: any, errorChannel:any, errorCmd:any) 
 	}
 
 	// Makes it a fancy embed
-	let embed:any = new Discord.EmbedBuilder()
+	let embed: any = new Discord.EmbedBuilder()
 		.setTitle(`Players online: ${server}`)
 		.setColor(0xffc20b)
 		.setDescription(responseList);
