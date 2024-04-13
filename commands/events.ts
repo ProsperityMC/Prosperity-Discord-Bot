@@ -48,13 +48,12 @@ export function leaveMessage(interaction:any, config:any) {
             if (message[0] == '{' && message.slice(-1) == '}' && message.includes("\"description\":")) { 
                 // If message is an embed
                 config.isLeaveEmbed = true;
-                config.LeaveMsg = JSON.parse(message);
             }
             else { 
                 // If not embed
                 config.isLeaveEmbed = false; 
-                config.leaveMsg = message;
             }
+            config.LeaveMsg = message;
             break;
     }
     return config;
