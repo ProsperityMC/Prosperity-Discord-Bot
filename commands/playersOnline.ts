@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+import Discord from "discord.js";
 
 export function playersOnline(interaction: any, errorChannel:any, errorCmd:any) {
 	// get people (probably none lmao)

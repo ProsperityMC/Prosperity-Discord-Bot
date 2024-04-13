@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+import Discord from "discord.js";
 
 export async function uptime(interaction:any, startTime:number, errorChannel:any, errorCmd:any) {
 	// something vaguely technical

@@ -1,18 +1,23 @@
-require("dotenv").config();
-const Discord = require("discord.js");
-const commandsList = require("./commands.json");
+import dotenv from "dotenv";
+import Discord from "discord.js";
+import commandsList from "./commands.json";
+
+dotenv.config();
+
+const token = process.env.TOKEN || "";
+const id = process.env.ID || "";
 const client = new Discord.Client({ intents: [Discord.GatewayIntentBits.Guilds] });
-const rest = new Discord.REST({ version: "10" }).setToken(process.env.TOKEN);
+const rest = new Discord.REST({ version: "10" }).setToken(token);
 
 async function deleteCommands() {
 	console.log("deleting commands");
-	rest.put(Discord.Routes.applicationCommands(process.env.ID), { body: [] });
+	rest.put(Discord.Routes.applicationCommands(id), { body: [] });
 }
 
 async function registerCommands() {
 	try {
 		console.log("refreshing slash commands");
-		await rest.put(Discord.Routes.applicationCommands(process.env.ID), { body: commandsList });
+		await rest.put(Discord.Routes.applicationCommands(id), { body: commandsList });
 		console.log("successfully refreshed slash commands");
 	} catch (error) {
 		console.error(error);
@@ -25,4 +30,4 @@ client.on("ready", async () => {
 	client.destroy();
 });
 
-client.login(process.env.TOKEN);
+client.login(token);

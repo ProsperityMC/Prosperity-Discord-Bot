@@ -1,11 +1,18 @@
-require("dotenv").config();
-const Discord = require("discord.js");
-const client = new Discord.Client({ intents: [Discord.GatewayIntentBits.Guilds] });
-const startTime = Date.now()
-let config = require("./config.json");
+import dotenv from "dotenv";
+import Discord from "discord.js";
+import cfg from "./config.json";
 import * as commands from "./commands/index";
 import { BaseInteraction } from "discord.js";
-let errorChannel:any;
+
+dotenv.config();
+
+const token = process.env.TOKEN || "";
+const client = new Discord.Client({ intents: [Discord.GatewayIntentBits.Guilds] });
+const startTime = Date.now();
+// I dunno if you should really be assigning anything to the config like this
+// but it supresses errors for now
+let config = cfg; 
+let errorChannel: any;
 
 // Command Run Loop
 client.on("interactionCreate", async (interaction: BaseInteraction) => {
@@ -98,7 +105,7 @@ client.on("guildMemberAdd", async (member: any) => {
 
 	
 	let msgToSub:string = "";
-	if (config.isJoinEmbed) { msgToSub = config.joinMsg.description; } 
+	if (config.isJoinEmbed) { msgToSub = config.joinMsg; } 
 	else { msgToSub = config.joinMsg; }
 
 	// Both can only be equal if at same position, which is fucking impossible, or if both are not found (i.e. both return -1)
@@ -107,6 +114,7 @@ client.on("guildMemberAdd", async (member: any) => {
 		channel.send(msgToSub);
 		return;
 	}
+
 	// Value substitution
 	let subStart:number = -1;
 	for (let i = 0; i < msgToSub.length; i++) {
@@ -176,7 +184,7 @@ client.on("guildMemberRemove", async (member: any) => {
 
 	// Get the bit which actually needs substituting
 	let msgToSub:string = "";
-	if (config.isLeaveEmbed) { msgToSub = config.leaveMsg.description; } 
+	if (config.isLeaveEmbed) { msgToSub = config.leaveMsg; } 
 	else { msgToSub = config.leaveMsg; }
 
 	// Both can only be equal if at same position, which is fucking impossible, or if both are not found (i.e. both return -1)
@@ -225,9 +233,9 @@ client.on("guildMemberRemove", async (member: any) => {
 
 // Run when ready
 client.on("ready", async () => { 
-	console.log(`logged in as ${client.user.tag}`); 
+	console.log(`logged in as ${client?.user?.tag}`); 
 	errorChannel = client.channels.cache.get(`${config.botErrorChannel}`);
 });
 
-// Login
-client.login(process.env.TOKEN);
+// login
+client.login(token);

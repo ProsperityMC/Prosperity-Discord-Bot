@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+import Discord from "discord.js";
 
 export function github(interaction:any) {
     // Link to GitHub Org.

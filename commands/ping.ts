@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+import Discord from "discord.js";
 
 export function ping(client:any, interaction:any) {
     // Get needed values

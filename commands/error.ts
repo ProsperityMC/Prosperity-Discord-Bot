@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+import Discord from "discord.js";
 
 export function error(title:string, message:string, channel:any) {
     // Send error to the error channel
