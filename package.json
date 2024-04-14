@@ -5,7 +5,7 @@
 	"main": "main.ts",
 	"repository": "https://github.com/ProsperityMC/Prosperity-Discord-Bot",
 	"author": "removeDirectory",
-	"license": "MIT",
+	"license": "GPL 3.0",
 	"dependencies": {
 		"discord.js": "^14.14.1",
 		"dotenv": "^16.4.5",
