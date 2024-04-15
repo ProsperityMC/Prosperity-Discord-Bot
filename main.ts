@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import * as commands from "./commands/index";
-import { BaseInteraction } from "discord.js";
 import * as Discord from "discord.js";
 import c from "./config.json";
 import * as fs from "fs";
@@ -11,7 +10,7 @@ let config = c;
 let errorChannel: any;
 
 // Command Run Loop
-client.on("interactionCreate", async (interaction: BaseInteraction) => {
+client.on("interactionCreate", async (interaction: Discord.BaseInteraction) => {
 	if (!interaction.isChatInputCommand()) {
 		return;
 	}
