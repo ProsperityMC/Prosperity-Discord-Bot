@@ -169,7 +169,8 @@ client.on("guildMemberRemove", async (member: any) => {
 			banned: banLogs.target.id == member.user.id ? 1 : 0
 		}),
 		headers: {
-			"Content-Type": "application/json"
+			"Content-Type": "application/json",
+			"authorization": process.env.KEY ? process.env.KEY : ""
 		}
 	}).then(async (response: Response) => {
 		if (response.status != 200) {

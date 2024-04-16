@@ -17,7 +17,7 @@ export function whitelist(interaction: any, errorChannel: any, errorCmd: any, au
 		}),
 		headers: {
 			"Content-Type": "application.json",
-			"authorization": auth
+			"authorization": auth ? auth : ""
 		}
 	}).then(async (response: Response) => {
 		// All cases handled, like a semi-professional programmer

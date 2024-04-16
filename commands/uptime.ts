@@ -17,7 +17,7 @@ export async function uptime(
 		// Gets response from API. 400 Bad Request should never happen as I've limited the choices but it's handled in case(tm) because i *try* to be a good programmer
 		fetch(`https://api.prosperitymc.net/uptime/${server}`, { 
 			headers: { 
-				"authorization": auth 
+				"authorization": auth ? auth : "" 
 			}
 		}).then(async (response: Response) => {
 			if (response.status == 400) {

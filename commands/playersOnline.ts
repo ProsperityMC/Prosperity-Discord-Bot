@@ -7,7 +7,7 @@ export function playersOnline(interaction: any, errorChannel: any, errorCmd: any
 
 	fetch(`https://api.prosperitymc.net/players/${server}`, {
 		headers: {
-			"authorization": auth
+			"authorization": auth ? auth : ""
 		}
 	}).then(async (response: Response) => {
 		if (response.status != 200) {

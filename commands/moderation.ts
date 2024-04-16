@@ -57,7 +57,7 @@ export function link(interaction: any, errorChannel: any, errorCmd: any, auth: a
 		}),
 		headers: {
 			"Content-Type": "application/json",
-			"authorization": auth
+			"authorization": auth ? auth : ""
 		}
 	}).then(async (response: Response) => {
 		// look a handled error!!1!1!!!!1!11!!
