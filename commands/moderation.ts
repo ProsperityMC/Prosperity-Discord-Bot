@@ -44,7 +44,7 @@ export function ban(interaction: any, client: any, errorChannel: any, errorCmd: 
 	});
 }
 
-export function link(interaction: any, errorChannel: any, errorCmd: any) {
+export function link(interaction: any, errorChannel: any, errorCmd: any, auth: any) {
 	// link discord and mc to do some 1984-type shit
 	const id: any = interaction.options.getUser("discord-user").id;
 	const mc: string = interaction.options.getString("mc-user");
@@ -56,7 +56,8 @@ export function link(interaction: any, errorChannel: any, errorCmd: any) {
 			discord: id
 		}),
 		headers: {
-			"Content-Type": "application/json"
+			"Content-Type": "application/json",
+			"authorization": auth
 		}
 	}).then(async (response: Response) => {
 		// look a handled error!!1!1!!!!1!11!!

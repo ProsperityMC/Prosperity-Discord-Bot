@@ -1,4 +1,4 @@
-export function whitelist(interaction: any, errorChannel: any, errorCmd: any) {
+export function whitelist(interaction: any, errorChannel: any, errorCmd: any, auth: any) {
 	const mc: string = interaction.options.getString("mc-user");
 	const id: any = interaction.options.getUser("discord-user").id;
 	const subCmd: string = interaction.options.getSubcommand();
@@ -16,7 +16,8 @@ export function whitelist(interaction: any, errorChannel: any, errorCmd: any) {
 			discord: id
 		}),
 		headers: {
-			"Content-Type": "application.json"
+			"Content-Type": "application.json",
+			"authorization": auth
 		}
 	}).then(async (response: Response) => {
 		// All cases handled, like a semi-professional programmer

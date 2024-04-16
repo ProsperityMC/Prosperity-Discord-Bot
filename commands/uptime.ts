@@ -4,7 +4,8 @@ export async function uptime(
 	interaction: any,
 	startTime: number,
 	errorChannel: any,
-	errorCmd: any
+	errorCmd: any,
+	auth: any
 ) {
 	// something vaguely technical
 	const server: string = interaction.options.getString("service");
@@ -14,7 +15,11 @@ export async function uptime(
 		uptime = Date.now() - startTime;
 	} else {
 		// Gets response from API. 400 Bad Request should never happen as I've limited the choices but it's handled in case(tm) because i *try* to be a good programmer
-		fetch(`https://api.prosperitymc.net/uptime/${server}`).then(async (response: Response) => {
+		fetch(`https://api.prosperitymc.net/uptime/${server}`, { 
+			headers: { 
+				"authorization": auth 
+			}
+		}).then(async (response: Response) => {
 			if (response.status == 400) {
 				uptime = -1;
 			} else if (response.status != 200) {

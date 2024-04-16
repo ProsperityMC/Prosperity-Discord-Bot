@@ -1,11 +1,15 @@
 import * as Discord from "discord.js";
 
-export function playersOnline(interaction: any, errorChannel: any, errorCmd: any) {
+export function playersOnline(interaction: any, errorChannel: any, errorCmd: any, auth: any) {
 	// get people (probably none lmao)
 	const server: string = interaction.options.getString("server");
 	let responseList: any;
 
-	fetch(`https://api.prosperitymc.net/players/${server}`).then(async (response: Response) => {
+	fetch(`https://api.prosperitymc.net/players/${server}`, {
+		headers: {
+			"authorization": auth
+		}
+	}).then(async (response: Response) => {
 		if (response.status != 200) {
 			responseList =
 				"There's been a server error, please try again later. If the issue persists, please let the mod team know.";

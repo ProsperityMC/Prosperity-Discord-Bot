@@ -66,10 +66,10 @@ client.on("interactionCreate", async (interaction: Discord.BaseInteraction) => {
 			commands.embed(interaction);
 			break;
 		case "uptime":
-			commands.uptime(interaction, startTime, errorChannel, commands.error);
+			commands.uptime(interaction, startTime, errorChannel, commands.error, process.env.KEY);
 			break;
 		case "players-online":
-			commands.playersOnline(interaction, errorChannel, commands.error);
+			commands.playersOnline(interaction, errorChannel, commands.error, process.env.KEY);
 			break;
 		case "kick":
 			commands.kick(interaction, client, errorChannel, commands.error);
@@ -78,9 +78,9 @@ client.on("interactionCreate", async (interaction: Discord.BaseInteraction) => {
 			commands.ban(interaction, client, errorChannel, commands.error);
 			break;
 		case "link":
-			commands.link(interaction, errorChannel, commands.error);
+			commands.link(interaction, errorChannel, commands.error, process.env.KEY);
 		case "whitelist":
-			commands.whitelist(interaction, errorChannel, commands.error);
+			commands.whitelist(interaction, errorChannel, commands.error, process.env.KEY);
 			break;
 		case "error-messages":
 			config = commands.errorMessage(interaction, config);
