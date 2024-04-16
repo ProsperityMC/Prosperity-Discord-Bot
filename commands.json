@@ -70,7 +70,7 @@
 	},
 	{
 		"name": "link",
-		"description": "Link your Discord Account to your Minecraft Account",
+		"description": "Link a Discord Account to a Minecraft Account",
 		"type": 1,
 		"options": [
 			{
@@ -179,6 +179,10 @@
 					{
 						"name": "Discord Bot",
 						"value": "bot"
+					},
+					{
+						"name": "API",
+						"value": "api"
 					}
 				]
 			}
