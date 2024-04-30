@@ -27,7 +27,7 @@ export async function uptime(
 				errorCmd("Error when fetching remote uptime", `\`\`\`\n${response}\`\`\``, errorChannel);
 			} else {
 				await response.json().then(async (data) => {
-					uptime = Date.now() - data.time;
+					uptime = data.time;
 				});
 			}
 			let uptimeStr: string;
